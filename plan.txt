@@ -1,0 +1,81 @@
+"/"
+
+	+ Header 
+
+	+ Link --> Movie List 
+
+	+ Link --> My List 
+
+	+ Link --> Login 
+
+	+ Link --> Sign up  
+
+	+ Footer 
+
+
+
+
+"/login"  
+
+	+ Header 
+
+	+ Login Form
+
+	+ Footer 
+
+
+
+
+"/signup"  
+
+	+ Header 
+
+	+ Sign-up Form
+
+	+ Footer 
+
+
+
+
+"/movies" 
+
+	+ Header 
+
+	+ Search Bar 
+
+	+ Movie List 
+
+	+ Footer 
+
+
+
+
+"/myMovies" 
+
+	+ Header 
+
+	+ Search Bar 
+
+	+ Movie List 
+
+	+ Footer 
+
+
+
+
+"/movies/:id"  
+
+	+ Header 
+
+	+ Movie Details
+
+	+ Footer 
+
+
+
+
+
+
+
+
+
