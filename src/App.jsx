@@ -6,6 +6,7 @@ import {HomePage} from "./components/HomePage"
 import {AllMovies} from "./pages/AllMovies"
 import {FavoriteMovies} from "./pages/FavoriteMovies"
 import {MovieDetail} from "./pages/MovieDetail"
+import { Login } from './pages/Login'
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                     <Route path='/' element={<HomePage />}>
                         <Route index element={<AllMovies />}/>
                         <Route path='favoriteMovies' element={<FavoriteMovies />}/>
+                        <Route path='login' element={<Login />}/>
                     </Route>
                     <Route path='/:id' element={<MovieDetail />}/>
                 </Routes>

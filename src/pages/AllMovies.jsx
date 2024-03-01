@@ -8,7 +8,6 @@ export function AllMovies() {
 
     let imgHTMLs = null
     if(movies) {
-        console.log(movies)
         imgHTMLs = movies.map(m => 
             <button key={m.id} className="mb-10">
                 <Link state={{prevPath: location.pathname}} to={`/${m.id}`}>
