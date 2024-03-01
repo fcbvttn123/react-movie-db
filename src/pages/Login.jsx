@@ -1,10 +1,12 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 export function Login() {
     const [formData, setFormData] = useState({
         username: "",
         password: "",
     })
+    const navigate = useNavigate()
 
     function handleChange(e) {
         const {name, value} = e.target
@@ -16,7 +18,8 @@ export function Login() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        console.log(formData)
+        localStorage.setItem("isSignedIn", true)
+        navigate("/favoriteMovies", {replace: true})
     }
 
     return (

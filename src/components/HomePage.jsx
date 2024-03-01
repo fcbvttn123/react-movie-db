@@ -7,6 +7,7 @@ export function HomePage() {
                 <NavLink to={"."} className={(obj) => `text-blue-900 ${obj.isActive && "underline"}`}>All Movies</NavLink>
                 <NavLink to={"/favoriteMovies"} className={(obj) => `text-blue-900 ${obj.isActive && "underline"}`}>Favorite Movies</NavLink>
                 <NavLink to={"/login"} className={(obj) => `text-blue-900 ${obj.isActive && "underline"}`}>Sign in</NavLink>
+                <button onClick={() => localStorage.setItem("isSignedIn", false)}>Sign out</button>
             </nav>
             <div className="mb-14">
                 <Outlet />

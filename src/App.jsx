@@ -7,6 +7,7 @@ import {AllMovies} from "./pages/AllMovies"
 import {FavoriteMovies} from "./pages/FavoriteMovies"
 import {MovieDetail} from "./pages/MovieDetail"
 import { Login } from './pages/Login'
+import { Authentication } from './components/Authentication'
 
 function App() {
     return (
@@ -17,7 +18,9 @@ function App() {
                 <Routes>
                     <Route path='/' element={<HomePage />}>
                         <Route index element={<AllMovies />}/>
-                        <Route path='favoriteMovies' element={<FavoriteMovies />}/>
+                        <Route element={<Authentication />}>
+                            <Route path='favoriteMovies' element={<FavoriteMovies />}/>
+                        </Route>
                         <Route path='login' element={<Login />}/>
                     </Route>
                     <Route path='/:id' element={<MovieDetail />}/>
