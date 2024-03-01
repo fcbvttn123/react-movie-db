@@ -3,11 +3,11 @@ import { NavLink, Outlet } from "react-router-dom"
 export function HomePage() {
     return (
         <div>
-            <nav>
-                <NavLink to={"."} className={(obj) => obj.isActive ? "underline" : ""}>All Movies</NavLink>
-                <NavLink to={"/favoriteMovies"} className={(obj) => obj.isActive ? "underline" : ""}>Favorite Movies</NavLink>
+            <nav className="py-4 flex justify-center items-center gap-x-4">
+                <NavLink to={"."} className={(obj) => `text-blue-900 ${obj.isActive && "underline"}`}>All Movies</NavLink>
+                <NavLink to={"/favoriteMovies"} className={(obj) => `text-blue-900 ${obj.isActive && "underline"}`}>Favorite Movies</NavLink>
             </nav>
-            <div>
+            <div className="mb-14">
                 <Outlet />
             </div>
         </div>
