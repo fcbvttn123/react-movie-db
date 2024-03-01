@@ -7,7 +7,9 @@ export function HomePage() {
                 <NavLink to={"."} className={(obj) => obj.isActive ? "underline" : ""}>All Movies</NavLink>
                 <NavLink to={"/favoriteMovies"} className={(obj) => obj.isActive ? "underline" : ""}>Favorite Movies</NavLink>
             </nav>
-            <Outlet />
+            <div>
+                <Outlet />
+            </div>
         </div>
     )
 }
