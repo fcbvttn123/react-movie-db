@@ -7,9 +7,12 @@ export function AllMovies() {
     const [genres, setGenres] = useState(null) // {id: 28, name: 'Action'}
     const location = useLocation()
     const [searchParams, setSearchParam] = useSearchParams()
+    const [formData, setFormData] = useState({
+        genre: ""
+    })
     
     // searchParams.get("genre") && console.log(searchParams.get("genre"))
-    movies && console.log(movies)
+    // movies && console.log(movies)
     // genres && console.log(genres)
 
     let imgHTMLs = null
@@ -24,6 +27,22 @@ export function AllMovies() {
         )
     } 
 
+    let optionHTMLs = null
+    if(genres) {
+        optionHTMLs = genres.map(e => <option key={e.id} value={e.id}>{e.name}</option>)
+    }
+
+    function handleChange(event) {
+        let {name, value} = event.target
+        setFormData(prev => {
+            return {
+                ...prev,
+                [name]: value
+            }
+        })
+    }
+
+    // Get data
     useEffect(() => {
         // Get an array of movies
         async function getData() {
@@ -40,8 +59,24 @@ export function AllMovies() {
         getDataGenres()
     }, [])
 
+    // Set up movie filter 
+    useEffect(() => {
+        formData.genre !== "" && setSearchParam({genreId: formData.genre})
+    }, [formData.genre])
+
+    // Reset search when refreshing the app 
+    useEffect(() => {
+        setSearchParam({})
+    }, [])
+
     return (
         <>
+            <form action="#" className="mb-4 bg-gray-200">
+                <select name="genre" value={formData.genre} onChange={handleChange}>
+                    <option value="">Select</option>
+                    {optionHTMLs}
+                </select>
+            </form>
             {imgHTMLs}
         </>
     )
