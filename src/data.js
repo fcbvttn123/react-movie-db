@@ -3,3 +3,9 @@ export async function getAllMovies() {
     let data = await res.json()
     return data.results
 }
+
+export async function getAllGenres() {
+    let res = await fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=cd48c60eb2bfcb6e551283f754cbe73f")
+    let data = await res.json()
+    return data.genres
+}
