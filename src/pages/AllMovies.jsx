@@ -11,20 +11,31 @@ export function AllMovies() {
         genre: ""
     })
     
-    // searchParams.get("genre") && console.log(searchParams.get("genre"))
+    // console.log(searchParams.get("genreId"))
     // movies && console.log(movies)
     // genres && console.log(genres)
 
     let imgHTMLs = null
     if(movies) {
-        imgHTMLs = movies.map(m => 
-            <button key={m.id} className="mb-10">
-                <Link state={{prevPath: location.pathname}} to={`/${m.id}`}>
-                    <h1>{m.title}</h1>
-                    <img src={`https://image.tmdb.org/t/p/original/${m.backdrop_path}`} />
-                </Link>
-            </button>
-        )
+        if(!searchParams.get("genreId")) {
+            imgHTMLs = movies.map(m => 
+                <button key={m.id} className="mb-10">
+                    <Link state={{prevPath: location.pathname}} to={`/${m.id}`}>
+                        <h1>{m.title}</h1>
+                        <img src={`https://image.tmdb.org/t/p/original/${m.backdrop_path}`} />
+                    </Link>
+                </button>
+            )
+        } else {
+            imgHTMLs = movies.map(m => 
+                m.genre_ids.find(e => e == searchParams.get("genreId")) && <button key={m.id} className="mb-10">
+                    <Link state={{prevPath: location.pathname}} to={`/${m.id}`}>
+                        <h1>{m.title}</h1>
+                        <img src={`https://image.tmdb.org/t/p/original/${m.backdrop_path}`} />
+                    </Link>
+                </button>
+            )
+        }
     } 
 
     let optionHTMLs = null
