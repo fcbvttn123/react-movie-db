@@ -11,7 +11,7 @@ export function AllMovies() {
         genre: ""
     })
     
-    // console.log(searchParams.get("genreId"))
+    // console.log(searchParams.toString())
     // movies && console.log(movies)
     // genres && console.log(genres)
 
@@ -29,7 +29,7 @@ export function AllMovies() {
         } else {
             imgHTMLs = movies.map(m => 
                 m.genre_ids.find(e => e == searchParams.get("genreId")) && <button key={m.id} className="mb-10">
-                    <Link state={{prevPath: location.pathname}} to={`/${m.id}`}>
+                    <Link state={{prevPath: location.pathname, movieFilter: searchParams.toString()}} to={`/${m.id}`}>
                         <h1>{m.title}</h1>
                         <img src={`https://image.tmdb.org/t/p/original/${m.backdrop_path}`} />
                     </Link>
